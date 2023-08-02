@@ -1,12 +1,14 @@
 package org.lessons.java.calcio;
 
+import java.time.LocalDate;
 public class Persona {
     protected String nome;
-    protected int eta;
 
-    public Persona(String nome, int eta) {
+    protected LocalDate dataNascita;
+
+    public Persona(String nome, LocalDate dataNascita) {
         this.nome = nome;
-        this.eta = eta;
+        this.dataNascita=dataNascita;
     }
 
     @Override
