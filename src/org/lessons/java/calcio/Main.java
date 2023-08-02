@@ -24,7 +24,7 @@ public class Main {
         while (giocatoriCasa.size()<11){
             int a = randomGenerator.nextInt(0,24);
             int daysBack=randomGenerator.nextInt(6570,12775);
-            int b= randomGenerator.nextInt(0, 10);;
+            int b= randomGenerator.nextInt(0, 10);
             LocalDate dataNascita =now.minusDays(daysBack);
 
             Giocatore giocatore= new Giocatore(nomi[a],dataNascita,ruoli[b]);
@@ -48,7 +48,7 @@ public class Main {
         while (giocatoriOspite.size()<11){
             int a = randomGenerator.nextInt(0,24);
             int daysBack=randomGenerator.nextInt(6570,12775);
-            int b= randomGenerator.nextInt(0, 10);;
+            int b= randomGenerator.nextInt(0, 10);
             LocalDate dataNascita =now.minusDays(daysBack);
 
             Giocatore giocatore= new Giocatore(nomi[a],dataNascita,ruoli[b]);
@@ -96,6 +96,9 @@ public class Main {
 
         System.out.println("Casa: "+partita.getGolCasa());
         System.out.println("Ospite: "+partita.getGolOspite());
+
+        System.out.println("Marcatori Casa: "+partita.getMarcatoriCasa());
+        System.out.println("Marcatori Ospite: "+partita.getMarcatoriOspite());
 
 
 

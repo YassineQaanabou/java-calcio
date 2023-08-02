@@ -10,10 +10,6 @@ public class Giocatore extends Persona{
         this.ruolo = ruolo;
     }
 
-    public String getRuolo() {
-        return ruolo;
-    }
-
     @Override
     public String toString() {
         return " Giocatore: "+ nome+ " Data di nascita: "+ dataNascita+" Ruolo:"+ ruolo ;
