@@ -12,36 +12,95 @@ public class Main {
                 "leao", "tomori","theo", "Didi", "Artur Friedenreich", "Garrincha", "Kaká", "Leônidas",
                 "Marta", "Mauro", "Neymar", "Pelé", "Rivaldo", "Romário", "Ronaldo", "Sócrates", "Vavá"};
 
-        String[] ruoli={"attaccante", "difensore", "terzino","centrocampista", "ala", "portiere"};
+        String[] ruoli={"portiere", "difensore", "difensore","terzino", "terzino", "centrocampista","centrocampista","centrocampista","ala","ala","attaccante"};
 
         String[] strategie={"contropiede", "palla lunga", "possesso palla","lungo le fascie", "catenaccio","brexit"};
+        String[] ruoliArbitro={"Arbitro", "guardalinee", "guardalinee"};
 
-        ArrayList<Giocatore> giocatori = new ArrayList<>();
+        ArrayList<Giocatore> giocatoriCasa = new ArrayList<>();
+        ArrayList<Giocatore> giocatoriOspite = new ArrayList<>();
 
-        while (giocatori.size()<11){
-            int a = randomGenerator.nextInt(1,25);
-            int b = randomGenerator.nextInt(1,6);
-            int monthsBack=randomGenerator.nextInt(216,420);
-
-            LocalDate dataNascita =now.minusMonths(monthsBack);
+/*SQUADRA CASA*/
+        while (giocatoriCasa.size()<11){
+            int a = randomGenerator.nextInt(0,24);
+            int daysBack=randomGenerator.nextInt(6570,12775);
+            int b= randomGenerator.nextInt(0, 10);;
+            LocalDate dataNascita =now.minusDays(daysBack);
 
             Giocatore giocatore= new Giocatore(nomi[a],dataNascita,ruoli[b]);
 
-            giocatori.add(giocatore);
+            giocatoriCasa.add(giocatore);
         }
 
-        int c = randomGenerator.nextInt(1,6);
-        int d = randomGenerator.nextInt(1,25);
-        int monthsBackCoach=randomGenerator.nextInt(480,840);
+        int strategiaCasa = randomGenerator.nextInt(0,5);
+        int nomeAllenatoreCasa = randomGenerator.nextInt(0,24);
+        int daysBackCoachHome=randomGenerator.nextInt(14600,25550);
 
-        LocalDate dataNascitaAllenatore =now.minusMonths(monthsBackCoach);
+        LocalDate dataNascitaAllenatore =now.minusDays(daysBackCoachHome);
 
-        Allenatore allenatore =new Allenatore(nomi[d],dataNascitaAllenatore, strategie[c]);
+        Allenatore allenatoreCasa =new Allenatore(nomi[nomeAllenatoreCasa],dataNascitaAllenatore, strategie[strategiaCasa]);
 
-        Squadra squadra=new Squadra(giocatori,allenatore);
+        Squadra squadraCasa=new Squadra(giocatoriCasa,allenatoreCasa);
 
-        System.out.println(squadra);
+        System.out.println(squadraCasa);
+
+/*SQUADRA OSPITE*/
+        while (giocatoriOspite.size()<11){
+            int a = randomGenerator.nextInt(0,24);
+            int daysBack=randomGenerator.nextInt(6570,12775);
+            int b= randomGenerator.nextInt(0, 10);;
+            LocalDate dataNascita =now.minusDays(daysBack);
+
+            Giocatore giocatore= new Giocatore(nomi[a],dataNascita,ruoli[b]);
+
+            giocatoriOspite.add(giocatore);
+        }
+
+        int strategiaOspite = randomGenerator.nextInt(0,5);
+        int nomeAllenatoreOspite = randomGenerator.nextInt(0,24);
+        int daysBackCoachAway=randomGenerator.nextInt(14600,25550);
+
+        LocalDate dataNascitaAllenatoreOspite =now.minusDays(daysBackCoachAway);
+
+        Allenatore allenatoreOspite =new Allenatore(nomi[nomeAllenatoreOspite],dataNascitaAllenatoreOspite, strategie[strategiaOspite]);
+
+        Squadra squadraOspite=new Squadra(giocatoriOspite,allenatoreOspite);
+
+        System.out.println(squadraOspite);
+
+  /*ARBITRO*/
+        int nomeArbitro = randomGenerator.nextInt(0,25);
+
+        int daysBackReferee=randomGenerator.nextInt(14600,25550);
+
+        LocalDate dataNascitaArbitro =now.minusDays(daysBackReferee);
+
+
+        Arbitro arbitro= new Arbitro(nomi[nomeArbitro],dataNascitaArbitro,ruoliArbitro[0]);
+
+        /*PARTITA*/
+
+        Partita partita =new Partita(squadraCasa,squadraOspite,arbitro);
+
+        System.out.println(partita.golSegnato());
+
+        partita.iniziaPartita();
+
+        System.out.println(partita.golSegnato());
+        System.out.println(partita.golSegnato());
+        System.out.println(partita.golSegnato());
+        System.out.println(partita.golSegnato());
+        System.out.println(partita.golSegnato());
+
+
+
+        System.out.println("Casa: "+partita.getGolCasa());
+        System.out.println("Ospite: "+partita.getGolOspite());
+
+
+
 
 
     }
 }
+

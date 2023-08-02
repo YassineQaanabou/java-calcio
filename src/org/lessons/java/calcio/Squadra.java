@@ -13,6 +13,6 @@ public class Squadra {
 
     @Override
     public String toString() {
-        return "Squadra: " +allenatore+giocatori;
+        return  allenatore+" Squadra: "+giocatori;
     }
 }
